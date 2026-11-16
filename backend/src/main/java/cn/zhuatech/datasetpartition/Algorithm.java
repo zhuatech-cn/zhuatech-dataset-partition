@@ -55,10 +55,20 @@ final class Algorithm {
     int[] count = {0, 0, 0}, ratios = {train, val, 100 - train - val};
     String[] names = {"train", "validation", "test"};
     var out = new ArrayList<>();
+    int remaining = sorted.size();
     for (var g : sorted) {
       int slot = 0;
       for (int i = 1; i < 3; i++)
         if (n * ratios[i] - 100 * count[i] > n * ratios[slot] - 100 * count[slot]) slot = i;
+      // If enough independent groups exist, reserve one for each still-empty split.
+      int empty = 0;
+      for (int amount : count) if (amount == 0) empty++;
+      if (sorted.size() >= 3 && remaining == empty) {
+        slot = -1;
+        for (int i = 0; i < 3; i++)
+          if (count[i] == 0 && (slot < 0 || ratios[i] > ratios[slot])) slot = i;
+      }
+      remaining--;
       count[slot] += g.size();
       for (int i : g)
         out.add(

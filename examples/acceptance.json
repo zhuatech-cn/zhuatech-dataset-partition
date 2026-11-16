@@ -1,0 +1,25 @@
+{
+  "title": "防泄漏划分的非空约束",
+  "settings": {
+    "train": 98,
+    "validation": 1,
+    "seed": "local"
+  },
+  "rows": [
+    {
+      "id": "A",
+      "text": "item A",
+      "group": "A"
+    },
+    {
+      "id": "B",
+      "text": "item B",
+      "group": "B"
+    },
+    {
+      "id": "C",
+      "text": "item C",
+      "group": "C"
+    }
+  ]
+}

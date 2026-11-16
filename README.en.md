@@ -4,7 +4,13 @@
 
 Keep connected groups of source IDs and normalized duplicate texts in a single split. Export a seeded, deterministic assignment and inspect actual train, validation and test counts. Semantic paraphrases require a separate deduplication pass.
 
+## 1.3: business acceptance
+
+Keep all three splits populated when at least three independent groups exist, without breaking group isolation. Previously saved results remain unchanged. Re-run a copy to apply the new calculation.
+
 ## Run locally
+
+Optional: run `python3 scripts/doctor.py` to check Java, the local bind address/port, and data directory permissions before launching. Python is not required to run the workbench.
 
 **1.2 update:** JSON imports identify the offending row or field instead of silently dropping unknown columns. Authors may withdraw a pending batch with a reason, retain its input and result, and copy it for correction. Concurrent retries with the same submission key and payload resolve to a single record on MySQL.
 

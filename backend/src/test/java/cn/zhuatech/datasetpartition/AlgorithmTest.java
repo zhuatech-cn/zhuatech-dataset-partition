@@ -39,6 +39,16 @@ class AlgorithmTest {
 
   /** 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ · 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。 */
   @Test
+  void enterpriseEvidenceAndBoundaries() {
+    var rows=List.<Map<String,Object>>of(Map.of("id","A","group","a","text","first"),Map.of("id","B","group","b","text","second"),Map.of("id","C","group","c","text","third"));
+    var config=Map.<String,Object>of("train",98,"validation",1,"seed","demo");
+    var result=Algorithm.compute(config,rows);var m=(Map<?,?>)result.get("metrics");
+    assertEquals(false,m.get("emptySplit"));assertEquals(1,m.get("train"));assertEquals(1,m.get("validation"));assertEquals(1,m.get("test"));
+    assertEquals(result,Algorithm.compute(config,rows.reversed()));
+  }
+
+  /** 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ · 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。 */
+  @Test
   void knownResults() {
     var result = Algorithm.compute(cfg, data);
     var m = (Map<String, Object>) result.get("metrics");
