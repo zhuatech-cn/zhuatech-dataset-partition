@@ -1,0 +1,35 @@
+{
+  "title": "训练数据准备样例",
+  "settings": {
+    "train": 60,
+    "validation": 20,
+    "seed": "release-1"
+  },
+  "rows": [
+    {
+      "id": "D1",
+      "group": "工单甲",
+      "text": "发票申请"
+    },
+    {
+      "id": "D2",
+      "group": "工单乙",
+      "text": " 发票申请 "
+    },
+    {
+      "id": "D3",
+      "group": "工单乙",
+      "text": "发票修改"
+    },
+    {
+      "id": "D4",
+      "group": "工单丙",
+      "text": "配送查询"
+    },
+    {
+      "id": "D5",
+      "group": "工单丁",
+      "text": "付款状态"
+    }
+  ]
+}
